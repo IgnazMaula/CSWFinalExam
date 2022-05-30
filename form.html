@@ -56,55 +56,109 @@
                 width: 120px;
                 height: 40px;
             }
+            .book-button:hover {
+                cursor: pointer;
+            }
         </style>
     </head>
     <body>
         <div class="content">
             <div class="form">
-                <!-- Name -->
-                <div class="form-input">
-                    <label for="name">Your Name</label><br />
-                    <input type="text" name="name" id="" placeholder="John Doe" />
-                </div>
-                <!-- Email -->
-                <div class="form-input">
-                    <label for="email">Your E-mail</label><br />
-                    <input type="email" name="name" id="" placeholder="john.doe@email.com" />
-                </div>
-                <!-- Phone -->
-                <div class="form-input">
-                    <label for="email">Your Phone</label><br />
-                    <input type="tel" name="phone" id="" placeholder="498-348-3872" />
-                </div>
-                <hr />
-                <br />
-                <!-- Form for Adults and Children -->
-                <div class="form-group">
+                <!-- Form -->
+                <form action="submit">
+                    <!-- Name using text input type-->
                     <div class="form-input">
-                        <label for="adults">Adults</label><br />
-                        <input type="number" name="adults" id="adults" placeholder="2" min="1" max="5" />
+                        <label for="name">Your Name</label><br />
+                        <input type="text" name="name" id="" placeholder="John Doe" />
                     </div>
+                    <!-- Email using email input type-->
                     <div class="form-input">
-                        <label for="children">Children</label><br />
-                        <input type="number" name="children" id="children" placeholder="2" min="1" max="5" />
+                        <label for="email">Your E-mail</label><br />
+                        <input type="email" name="name" id="" placeholder="john.doe@email.com" />
                     </div>
-                </div>
-                <!-- Form for check in and check out -->
-                <div class="form-group">
+                    <!-- Phone using tel input type -->
                     <div class="form-input">
-                        <label for="checkIn">Check-in Date</label><br />
-                        <input type="date" name="checkIn" id="checkIn" placeholder="2" min="1" max="5" />
+                        <label for="email">Your Phone</label><br />
+                        <input type="tel" name="phone" id="" placeholder="498-348-3872" />
                     </div>
-                    <div class="form-input">
-                        <label for="checkOut">Check-out Date</label><br />
-                        <input type="date" name="checkOut" id="checkOut" placeholder="2" min="1" max="5" />
+                    <hr />
+                    <br />
+                    <!-- Form for Adults and Children -->
+                    <div class="form-group">
+                        <!-- Min 1 and Max 5 for adults and children -->
+                        <div class="form-input">
+                            <label for="adults">Adults</label><br />
+                            <input type="number" name="adults" id="adults" placeholder="2" min="1" max="5" />
+                        </div>
+                        <!-- Min 1 and Max 5 for adults and children -->
+                        <div class="form-input">
+                            <label for="children">Children</label><br />
+                            <input type="number" name="children" id="children" placeholder="2" min="1" max="5" />
+                        </div>
                     </div>
-                </div>
-                <!-- Submit Button -->
-                <button type="submit" class="book-button">Book The Rooms</button>
+                    <!-- Form for check in and check out -->
+                    <div class="form-group">
+                        <!-- Check in date (+1 after today) -->
+                        <div class="form-input">
+                            <label for="checkIn">Check-in Date</label><br />
+                            <!-- Using on change so the checkout min date could update evertime there is change on the check in form -->
+                            <input type="date" name="checkIn" id="checkIn" placeholder="2" min="2000-01-01" onchange="checkOutHandler()" />
+                        </div>
+                        <!-- Check out date (+1 after check in date) -->
+                        <div class="form-input">
+                            <label for="checkOut">Check-out Date</label><br />
+                            <input type="date" name="checkOut" id="checkOut" placeholder="2" min="2000-01-01" />
+                        </div>
+                    </div>
+                    <!-- Submit Button -->
+                    <button type="submit" class="book-button">Book The Rooms</button>
+                </form>
             </div>
         </div>
         <!-- Javascript Section -->
-        <script></script>
+        <script>
+            // Variable declaration
+            let minCheckIn;
+            let minCheckOut;
+            // get date of tomorrow by get day of today + 1
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            var dd = tomorrow.getDate();
+            var mm = tomorrow.getMonth() + 1; // Plus 1 to match index that start from 0 to actual month that start from 1
+            var yyyy = tomorrow.getFullYear();
+
+            if (dd < 10) {
+                dd = '0' + dd;
+            }
+
+            if (mm < 10) {
+                mm = '0' + mm;
+            }
+            // convert the date into string and setAttribute of min check in date
+            minCheckIn = yyyy + '-' + mm + '-' + dd;
+            document.querySelector('#checkIn').setAttribute('min', minCheckIn);
+
+            // Will fire everytime the checkin date is adjusted
+            function checkOutHandler() {
+                // get date min checkout by get the value of min check in date and add it by 1
+                minCheckIn = document.querySelector('#checkIn').value;
+                const minCheckOutDate = new Date(minCheckIn);
+                minCheckOutDate.setDate(minCheckOutDate.getDate() + 1);
+                var dd = minCheckOutDate.getDate();
+                var mm = minCheckOutDate.getMonth() + 1; // Plus 1 to match index that start from 0 to actual month that start from 1
+                var yyyy = minCheckOutDate.getFullYear();
+
+                if (dd < 10) {
+                    dd = '0' + dd;
+                }
+
+                if (mm < 10) {
+                    mm = '0' + mm;
+                }
+                // convert the date into string and setAttribute of min check out date
+                minCheckOut = yyyy + '-' + mm + '-' + dd;
+                document.querySelector('#checkOut').setAttribute('min', minCheckOut);
+            }
+        </script>
     </body>
 </html>
