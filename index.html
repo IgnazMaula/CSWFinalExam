@@ -1,3 +1,4 @@
+<!-- This is the overall code including the structural elements -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -45,6 +46,7 @@
                 background: rgb(255, 255, 255);
                 background: linear-gradient(180deg, rgba(255, 255, 255, 1) 9%, rgba(156, 207, 255, 1) 47%, rgba(255, 255, 255, 1) 68%);
             }
+            /* Custom width and margin */
             .content {
                 width: 70%;
                 margin-left: 15%;
@@ -88,20 +90,24 @@
                 margin-left: 5%;
                 margin-right: 5%;
             }
+            /* text center for some of the table column */
             .text-center {
                 text-align: center;
             }
             th {
                 text-align: center;
             }
+            /* 1px border with blue color and padding */
             td,
             th {
                 border: 1px solid #2076d3;
                 padding: 8px;
             }
+            /* Set table header background as white */
             thead tr {
                 background-color: white;
             }
+            /* Set rows with odd order to give light blue color (rows with even order will stays white) */
             tbody tr:nth-child(odd) {
                 background-color: #f5fafc;
             }
@@ -114,6 +120,7 @@
                 border-radius: 20px;
                 width: 100%;
             }
+            /* Hover pointer for buy button */
             .buy-button:hover {
                 cursor: pointer;
             }
@@ -140,15 +147,19 @@
             <div class="content">
                 <!-- Insert Header image -->
                 <div class="header-image">
-                    <img src="/./header.jpg" alt="" width="100%" />
+                    <img src="./header.jpg" alt="" width="100%" />
                 </div>
+                <!-- Title -->
                 <div class="text-content">
                     <h2>The Glamping at HELP Resort</h2>
+                    <!-- 3 column of paragraph and h3 in 1 row (using flexbox)-->
                     <div class="column-section">
+                        <!-- column 1 -->
                         <div class="column-content">
                             <h3>What is Glamping?</h3>
                             <p>Each glamping has canvas wall, an wooden floor, a roof dome that can be opened, and a private deck</p>
                         </div>
+                        <!-- Column 2 -->
                         <div class="column-content">
                             <h3>How are glamping furnished?</h3>
                             <p>
@@ -156,6 +167,7 @@
                                 mini-fridge, microwave, and coffee maker.
                             </p>
                         </div>
+                        <!-- Column 3 -->
                         <div class="column-content">
                             <h3>What should I bring?</h3>
                             <p>
@@ -165,10 +177,13 @@
                         </div>
                     </div>
                 </div>
+                <!-- Table Section -->
                 <div class="table-content">
+                    <!-- Title -->
                     <h2>Glamping Packages</h2>
                     <div class="table">
                         <table>
+                            <!-- Table Header -->
                             <thead>
                                 <tr>
                                     <th>Package Name</th>
@@ -178,7 +193,9 @@
                                     <th>Purchase</th>
                                 </tr>
                             </thead>
+                            <!-- Table body containing the package information (3 in total) -->
                             <tbody>
+                                <!-- Row 1: Weekend Escape -->
                                 <tr>
                                     <td>Weekend Escape</td>
                                     <td>Two breakfst, a trail map, a picnic snack</td>
@@ -186,6 +203,7 @@
                                     <td class="text-center">$450</td>
                                     <td><button class="buy-button">Buy</button></td>
                                 </tr>
+                                <!-- Row 2: Zen Retreat -->
                                 <tr>
                                     <td>Zen Retreat</td>
                                     <td>Four breakfst, a trail map, a pass for daily yoga</td>
@@ -193,6 +211,7 @@
                                     <td class="text-center">$600</td>
                                     <td><button class="buy-button">Buy</button></td>
                                 </tr>
+                                <!-- Row 3: Kayak Away -->
                                 <tr>
                                     <td>Kayak Away</td>
                                     <td>Two breakfst, two hours of kayak rental daily, a trail map</td>
@@ -204,6 +223,7 @@
                         </table>
                     </div>
                 </div>
+                <!-- Footer section include copyright and student's website -->
                 <footer>
                     Copyright © 2022 HELP Resort
                     <br />
