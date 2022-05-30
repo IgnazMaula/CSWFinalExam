@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Form</title>
+        <!-- Css Section -->
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            /* Custom hr  */
+            hr {
+                border-top: 1px dotted black;
+            }
+            /* Custom margin and padding for label and input */
+            label {
+                margin-bottom: 30px;
+            }
+            input {
+                margin-top: 10px;
+                padding: 8px;
+                width: 95%;
+            }
+            .content {
+                background-color: rgb(232, 250, 255);
+                padding-top: 150px;
+                height: calc(100vh - 150px);
+            }
+            /* Form Content */
+            .form {
+                background-color: white;
+                width: 30%;
+                margin: 0 auto;
+                padding: 40px;
+            }
+            .form-input {
+                margin-bottom: 20px;
+            }
+            .form-group {
+                display: flex;
+                flex-direction: row;
+            }
+            .form-group .form-input {
+                width: 50%;
+                margin-right: 10%;
+            }
+            /* Custom Css for the submit button */
+            .book-button {
+                background-color: #ffa500;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                width: 120px;
+                height: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <div class="form">
+                <!-- Name -->
+                <div class="form-input">
+                    <label for="name">Your Name</label><br />
+                    <input type="text" name="name" id="" placeholder="John Doe" />
+                </div>
+                <!-- Email -->
+                <div class="form-input">
+                    <label for="email">Your E-mail</label><br />
+                    <input type="email" name="name" id="" placeholder="john.doe@email.com" />
+                </div>
+                <!-- Phone -->
+                <div class="form-input">
+                    <label for="email">Your Phone</label><br />
+                    <input type="tel" name="phone" id="" placeholder="498-348-3872" />
+                </div>
+                <hr />
+                <br />
+                <!-- Form for Adults and Children -->
+                <div class="form-group">
+                    <div class="form-input">
+                        <label for="adults">Adults</label><br />
+                        <input type="number" name="adults" id="adults" placeholder="2" min="1" max="5" />
+                    </div>
+                    <div class="form-input">
+                        <label for="children">Children</label><br />
+                        <input type="number" name="children" id="children" placeholder="2" min="1" max="5" />
+                    </div>
+                </div>
+                <!-- Form for check in and check out -->
+                <div class="form-group">
+                    <div class="form-input">
+                        <label for="checkIn">Check-in Date</label><br />
+                        <input type="date" name="checkIn" id="checkIn" placeholder="2" min="1" max="5" />
+                    </div>
+                    <div class="form-input">
+                        <label for="checkOut">Check-out Date</label><br />
+                        <input type="date" name="checkOut" id="checkOut" placeholder="2" min="1" max="5" />
+                    </div>
+                </div>
+                <!-- Submit Button -->
+                <button type="submit" class="book-button">Book The Rooms</button>
+            </div>
+        </div>
+        <!-- Javascript Section -->
+        <script></script>
+    </body>
+</html>
